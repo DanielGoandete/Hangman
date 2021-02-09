@@ -41,20 +41,17 @@ function start(){
 function containsInWord(searchStr, str){
     
     var searchStrLen = searchStr.length;
-    
-   
+    var startIndex = 0, index, indices = [];
     if (searchStrLen == 0) {
     
         return [];
     }
-    var startIndex = 0, index, indices = [];
-    
+   
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
         indices.push(index);
         startIndex = index + searchStrLen;
        
     }
-    
     return indices;
 
 }
@@ -64,44 +61,31 @@ function containsInWord(searchStr, str){
 function letter(){
     let chosenLetter = document.getElementById("letter").value;
     let aToZ = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-   
     aToZ.forEach((value,i) => { 
         if(chosenLetter == value){
-            chosenLetter = value;
-            
+            chosenLetter = value;   
         }
-   })
-   
-    
+   }) 
     return chosenLetter;
 }
 
 //fill the underline with the letter
 function fillEmptyLetter(){
 
-   
    var underline= [];
-  
    var firstLetterValue;
-   
    for(var i= 0; i <= word.length; i++){
      
         firstLetterValue = word.charAt(i);
         if(firstLetterValue == letter()){
             underline[i]= firstLetterValue;
             underline.forEach((value,x ) =>{
-             if(value == firstLetterValue){
-                alert('adicionou  o '+firstLetterValue+ ' na possicao: '+ i );
-                goodwords[i]= firstLetterValue;
-             }
-        })
-    }
-   
-       
-      
+                if(value == firstLetterValue){
+                    alert('adicionou  o '+firstLetterValue+ ' na possicao: '+ i );
+                    goodwords[i]= firstLetterValue;
+                }
+            })
+        }
    }
-  // document.getElementById("guess").innerHTML = underline;
-
-
 }
 
