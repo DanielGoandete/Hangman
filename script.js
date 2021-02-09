@@ -1,10 +1,13 @@
 
 let badWords = [];
+let goodwords = [];
 let hang = 0;
 let goodWord = true;
+let gameOver = false;
+let lives = 6;
 
 //get random value from array
-var names = ["daniel","joao","paulo","xavier"];
+var names = ["dan"]//,"joao","paulo","xavier"];
 let word = names[Math.floor(Math.random() * names.length)];
 
 //start with the letter that have been choseen
@@ -15,9 +18,8 @@ function start(){
    
     
     if(indices.length > 0){
-        //fazer um for depois para percorrer os achados 
-        // document.getElementById("guess").innerHTML = indices + "";
-        document.getElementById("guess").innerHTML = letter();
+       
+        document.getElementById("guess").innerHTML = goodwords;
 
     }else{
         //in case that is not the word will put the list 
@@ -77,11 +79,29 @@ function letter(){
 //fill the underline with the letter
 function fillEmptyLetter(){
 
-   alert(word.length);
+   
    var underline= [];
-   for(var i= 1; i <= word.length; i++){
-    underline.push('__ ');
-    
+  
+   var firstLetterValue;
+   
+   for(var i= 0; i <= word.length; i++){
+     
+        firstLetterValue = word.charAt(i);
+        if(firstLetterValue == letter()){
+            underline[i]= firstLetterValue;
+            underline.forEach((value,x ) =>{
+             if(value == firstLetterValue){
+                alert('adicionou  o '+firstLetterValue+ ' na possicao: '+ i );
+                goodwords[i]= firstLetterValue;
+             }
+        })
+    }
+   
+       
+      
    }
-   document.getElementById("guess").innerHTML = underline;
+  // document.getElementById("guess").innerHTML = underline;
+
+
 }
+
