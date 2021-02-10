@@ -1,0 +1,41 @@
+@media only screen and (min-width: 768px) {
+  .grad {
+    background-image: url(https://cdn4.vectorstock.com/i/1000x1000/19/18/sketch-pad-with-pencils-vector-8791918.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .col-sm {
+    margin-top: 3%;
+  }
+  .marginG {
+    margin-left: 15%;
+  }
+  .rowInput {
+    margin-left: 27%;
+  }
+  .marginCol {
+    margin-top: 15%;
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gradMobile {
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/001/048/605/small_2x/opened-recycle-note-book-on-white-background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .marginG {
+    text-align: center;
+    margin-top: 15%;
+  }
+  .rowInput {
+    margin-left: 25%;
+    margin-top: 1%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

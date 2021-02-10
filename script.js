@@ -6,8 +6,9 @@ let goodWord = true;
 let gameOver = false;
 let lives = 6;
 
+
 //get random value from array
-var names = ["dan"]//,"joao","paulo","xavier"];
+var names = ["daniel","joao","paulo","xavier"];
 let word = names[Math.floor(Math.random() * names.length)];
 
 //start with the letter that have been choseen
@@ -22,6 +23,8 @@ function start(){
         document.getElementById("guess").innerHTML = goodwords;
 
     }else{
+        //alert("vai entrar no else ");
+        
         //in case that is not the word will put the list 
         badWords.push(letter());
         document.getElementById("guessed").innerHTML = badWords;
@@ -29,9 +32,28 @@ function start(){
         hang = hang + 1; 
         
             if(hang <= 6){
-            document.getElementById("show"+hang).innerHTML = 'hangman'+[hang];
+                var div = document.createElement("div");
+                var elem = document.createElement("img");
+                div.setAttribute('class', 'col-sm');
+                div.setAttribute('id', 'show'+hang);
+                
+                elem.src ="assets/rope"+hang+".jpg";
+                elem.setAttribute("height", "250");
+                elem.setAttribute("width", "150");
+                elem.setAttribute("alt", "hang");
+                
+                document.getElementById("show0").appendChild(div);
+                document.getElementById("show"+hang).appendChild(elem);
+                //remove picture to replace the new one 
+                if(hang > 1){
+                    var temp = hang;
+                    temp -= 1
+                    document.getElementById("show"+temp).remove(elem);
+                }
             }else{
-                alert('GAME OVER!!!')
+                alert('GAME OVER!!!');
+                restartGame();
+                
             }
     }
     
@@ -75,17 +97,34 @@ function fillEmptyLetter(){
    var underline= [];
    var firstLetterValue;
    for(var i= 0; i <= word.length; i++){
-     
-        firstLetterValue = word.charAt(i);
+       //get the letter from indice
+       firstLetterValue = word.charAt(i);
+       //verify the word if contains 
         if(firstLetterValue == letter()){
             underline[i]= firstLetterValue;
+            //set goodwords with the good letter
             underline.forEach((value,x ) =>{
                 if(value == firstLetterValue){
-                    alert('adicionou  o '+firstLetterValue+ ' na possicao: '+ i );
                     goodwords[i]= firstLetterValue;
+                }
+                //if is the same lenght the game is finished
+                if(word.length == goodwords.length){
+                    alert('you won the game');
+                    
                 }
             })
         }
    }
 }
 
+function restartGame(){
+    hang = 0;
+    badWords = [];
+    goodwords = [];
+    document.getElementById("guess").innerHTML = goodwords;
+    document.getElementById("guessed").innerHTML = badWords;
+    lives = 6;
+    word = names[Math.floor(Math.random() * names.length)];
+    document.getElementById("show6").remove();            
+    start();
+}
