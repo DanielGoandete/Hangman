@@ -43,20 +43,25 @@
                 <h1>Letters used</h1>
                 <h5 id="guessed"></h5>
             </div>
-            <div class="col-sm marginG">
+            <div class="col-sm  marginYourGoal">
               <h1>Your goal</h1>
                 <h5 id="guess" ></h5></div>
-            <div class="col-sm" id="show0"></div> 
+            <div class="col-sm" id="show0">
+              <h1>Lives:<span id="life"></span></h1>
+            </div> 
            
         </div>
         <div class="row rowInput" >
           <div class="col-sm marginCol">
             
-            Input your guess<br>
-            <input name="" id="letter"  type="text" value="">
+            Input your guess and press ok!<br>
+            <input name=""  id="letter"  onfocus="value=''" size="13" type="text"  value="">
+            <button class="btn btn-primary" onclick="start()">OK</button>
+           
             <br><br>
-            <button class="btn btn-primary" onclick="start()">Start</button>
-            <button class="btn btn-secondary" >Restart</button>
+            <form >
+            <button id="restart" class="btn btn-secondary" type="submit">Restart the game</button>
+          </form>
            
           </div> 
       </div>

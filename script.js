@@ -8,7 +8,7 @@ let lives = 6;
 
 
 //get random value from array
-var names = ["daniel","joao","paulo","xavier"];
+var names = ["daniel","aurelie","papa","mariane"];
 let word = names[Math.floor(Math.random() * names.length)];
 
 //start with the letter that have been choseen
@@ -37,23 +37,24 @@ function start(){
                 div.setAttribute('class', 'col-sm');
                 div.setAttribute('id', 'show'+hang);
                 
-                elem.src ="assets/rope"+hang+".jpg";
+                elem.src ="assets/rope"+hang+".png";
                 elem.setAttribute("height", "250");
                 elem.setAttribute("width", "150");
                 elem.setAttribute("alt", "hang");
                 
                 document.getElementById("show0").appendChild(div);
                 document.getElementById("show"+hang).appendChild(elem);
+                document.getElementById("life").innerHTML = lives = lives -1;
                 //remove picture to replace the new one 
                 if(hang > 1){
                     var temp = hang;
                     temp -= 1
                     document.getElementById("show"+temp).remove(elem);
                 }
-            }else{
-                alert('GAME OVER!!!');
-                restartGame();
-                
+                if(hang == 6){
+                    alert('GAME OVER!!!, the word was:  ' + word );
+                    document.getElementById('restart').click();
+                }
             }
     }
     
@@ -108,23 +109,11 @@ function fillEmptyLetter(){
                     goodwords[i]= firstLetterValue;
                 }
                 //if is the same lenght the game is finished
-                if(word.length == goodwords.length){
-                    alert('you won the game');
-                    
+                if(word.length === goodwords.length){
+                   alert('you won the game congratulations!!!, the word was ' + word);
+                   document.getElementById('restart').click();
                 }
             })
         }
    }
-}
-
-function restartGame(){
-    hang = 0;
-    badWords = [];
-    goodwords = [];
-    document.getElementById("guess").innerHTML = goodwords;
-    document.getElementById("guessed").innerHTML = badWords;
-    lives = 6;
-    word = names[Math.floor(Math.random() * names.length)];
-    document.getElementById("show6").remove();            
-    start();
 }
