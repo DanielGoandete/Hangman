@@ -5,10 +5,11 @@ let hang = 0;
 let goodWord = true;
 let gameOver = false;
 let lives = 6;
+let win = 0;
 
 
 //get random value from array
-var names = ["daniel","aurelie","papa","mariane"];
+var names = ["daniela","joao","daniel","zain"];
 let word = names[Math.floor(Math.random() * names.length)];
 
 //start with the letter that have been choseen
@@ -96,6 +97,8 @@ function letter(){
 function fillEmptyLetter(){
 
    var underline= [];
+  
+   var checkWin = word.length;
    var firstLetterValue;
    for(var i= 0; i <= word.length; i++){
        //get the letter from indice
@@ -103,17 +106,21 @@ function fillEmptyLetter(){
        //verify the word if contains 
         if(firstLetterValue == letter()){
             underline[i]= firstLetterValue;
+            //count until the lenght of the word to win
+            win = win +1;
             //set goodwords with the good letter
             underline.forEach((value,x ) =>{
                 if(value == firstLetterValue){
                     goodwords[i]= firstLetterValue;
                 }
+               
                 //if is the same lenght the game is finished
-                if(word.length === goodwords.length){
+                if(win == checkWin){
                    alert('you won the game congratulations!!!, the word was ' + word);
                    document.getElementById('restart').click();
                 }
             })
+            
         }
    }
 }

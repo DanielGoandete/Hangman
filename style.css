@@ -32,9 +32,12 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  .marginG {
+  .marginYourGoalMobile {
+    margin-top: 20%;
+  }
+  .marginMobile {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
   }
   .rowInput {
     margin-left: 25%;
