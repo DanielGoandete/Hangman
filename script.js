@@ -91,7 +91,6 @@ function letter(){
 function fillEmptyLetter(){
 
    var underline= [];
-  
    var checkWin = word.length;
    var firstLetterValue;
    for(var i= 0; i <= word.length; i++){
