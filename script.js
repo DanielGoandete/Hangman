@@ -84,12 +84,6 @@ function containsInWord(searchStr, str){
 //verify the letter onclick
 function letter(){
     let chosenLetter = document.getElementById("letter").value;
-    let aToZ = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    aToZ.forEach((value,i) => { 
-        if(chosenLetter == value){
-            chosenLetter = value;   
-        }
-   }) 
     return chosenLetter;
 }
 
